@@ -70,3 +70,13 @@ CREATE TABLE IF NOT EXISTS `inv_profit_snapshot` (
   `market_value` DECIMAL(15,2) COMMENT '当日市值',
   `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='投资收益快照表';
+
+-- ==============================================
+-- 用户偏好配置表
+-- ==============================================
+CREATE TABLE IF NOT EXISTS `sys_user_preference` (
+  `user_id` BIGINT NOT NULL COMMENT '用户ID',
+  `pref_key` VARCHAR(100) NOT NULL COMMENT '配置键名',
+  `pref_value` TEXT COMMENT '配置内容',
+  PRIMARY KEY (`user_id`, `pref_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户偏好配置表';
