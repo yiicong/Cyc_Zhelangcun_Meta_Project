@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS `inv_profit_snapshot` (
   `daily_profit` DECIMAL(15,2) COMMENT '当日收益',
   `principal` DECIMAL(15,2) COMMENT '累计本金',
   `market_value` DECIMAL(15,2) COMMENT '当日市值',
+  `remark` VARCHAR(255) COMMENT '备注',
   `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='投资收益快照表';
 
