@@ -81,3 +81,15 @@ CREATE TABLE IF NOT EXISTS `sys_user_preference` (
   `pref_value` TEXT COMMENT '配置内容',
   PRIMARY KEY (`user_id`, `pref_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户偏好配置表';
+
+-- ==============================================
+-- 阶段性资金对账备忘录表
+-- ==============================================
+CREATE TABLE IF NOT EXISTS `inv_exchange_memo` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `memo_date` date DEFAULT NULL COMMENT '记录日期',
+  `content` text COMMENT '备忘录详细内容',
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='外汇对账备忘录';
