@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `inv_exchange` (
   `exchange_rate` DECIMAL(10,4) COMMENT '汇率（to_amount / from_amount）',
   `exchange_rate_reverse` DECIMAL(10,4) COMMENT '反向汇率（from_amount / to_amount）',
   `exchange_date` DATE NOT NULL COMMENT '换汇日期',
+  `tag` VARCHAR(20) COMMENT '标签（换汇、提取、损耗）',
   `remark` VARCHAR(255) COMMENT '备注',
   `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='换汇记录表';
