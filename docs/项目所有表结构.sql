@@ -22,6 +22,13 @@ CREATE TABLE IF NOT EXISTS `inv_product` (
   `name` VARCHAR(100) NOT NULL COMMENT '产品名称（如：xx基金，xx股票）',
   `type` VARCHAR(20) NOT NULL COMMENT '产品分类代码（如FUND、STOCK等）',
   `currency` VARCHAR(10) DEFAULT 'CNY' COMMENT '计价币种（CNY/HKD/USD/EUR/GBP/USDT）',
+  `sort_order` INT DEFAULT 0 COMMENT '自定义排序顺序',
+  `remaining_shares` DECIMAL(15,4) DEFAULT 0.0000 COMMENT '当期剩余持仓份额(清仓为0)',
+  `cost_amount` DECIMAL(15,2) DEFAULT 0.00 COMMENT '当期持仓成本/本金(清仓为0)',
+  `market_value` DECIMAL(15,2) DEFAULT 0.00 COMMENT '当期最新市值(清仓为0)',
+  `realized_profit` DECIMAL(15,2) DEFAULT 0.00 COMMENT '当期累计收益/结转盈亏(持仓为累计总收益含浮盈，清仓为末次结转落袋收益)',
+  `realized_profit_text` VARCHAR(100) DEFAULT NULL COMMENT '分段已实现盈亏展示文本(如 31.59 | 35.00)',
+  `hold_duration_text` VARCHAR(50) DEFAULT NULL COMMENT '分段持有天数展示文本(如 20天 | 45天)',
   `create_time` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='投资产品表';
@@ -93,3 +100,4 @@ CREATE TABLE IF NOT EXISTS `inv_exchange_memo` (
   `create_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='外汇对账备忘录';
+
